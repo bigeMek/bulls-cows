@@ -1,0 +1,55 @@
+import random
+first_digit = random.choice('123456789')
+remain_digits = ''.join(random.sample('0123456789'.replace(first_digit, ''), 3))
+
+generate_number = first_digit + remain_digits
+
+line = 47 * '-'
+
+pozdrav = (f'''
+Hi there!
+{line}
+I've generated a random 4 digit number for you.
+Let's play a bulls and cows game.
+{line}
+''')
+
+def enter_number():
+    number = input('Enter a Number:')
+    if number.isdigit() and len(number) == 4 and number[0] != '0' and len(set(number)) == 4:
+    #if number.isdigit() and len(number) == 4 and number[0] != 0 and len(set(number)) == 4:
+       return number
+    else:
+        print('wrong number, insert four digit number, first number shouldnt be 0 and no duplicity')
+        return enter_number()
+    
+
+
+
+user_number = enter_number()
+
+
+print(pozdrav)        
+print(type(user_number))
+print(generate_number)
+print(user_number)
+
+guess_rigth = []
+guess_wrong = []
+cow = len(guess_rigth == 1)
+cows = len(guess_rigth > 1)
+bull = len(guess_wrong) == 1
+bulls = len(guess_wrong > 1)
+
+
+
+
+
+for guess in range(4):
+    if user_number[guess] == generate_number[guess]:
+        guess_rigth.append(user_number[guess])
+    else:
+        guess_wrong.append(user_number[guess])
+
+print(f'There is a {len(guess_rigth)} cows')
+print(guess_wrong)
