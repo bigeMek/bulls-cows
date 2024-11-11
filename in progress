@@ -33,8 +33,10 @@ print(f'your choice is number {user_number}')
 #cow - pokud uživatel uhodne pouze číslo, ale ne jeho umístění
 # nezapomenout na mnozne cisla pri plneni listu 
 
-
-
+################
+### cow, cows = len(guess_cow) <= 1, len(guess_cow) >= 2
+### bull, bulls = len(guess_bull) <= 1, len(guess_bull) >= 2  
+################
 guess_bull = []
 guess_cow = []
 
