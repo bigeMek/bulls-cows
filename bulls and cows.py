@@ -58,17 +58,16 @@ attempts = 0 #pocitani pokusu
 
 #nekonecna smycka vyberu cisel ktera konci az pri splneni podminky, tj. uhadnuti vsech cisel
 while len(guess_bull) < 4:
+    attempts += 1
     guess_bull.clear()
     guess_cow.clear()
     for guess in range(4):
         # Kontrolujeme jednotlive cislice na stejnych pozicich
         if user_number[guess] == generate_number[guess] and user_number[guess] in generate_number:
             guess_bull.append(user_number[guess])
-            attempts += 1
         # kontrolujeme zda se cislo nachazi v inputu
         elif user_number[guess] in generate_number:
             guess_cow.append(user_number[guess])
-            attempts += 1
     if len(guess_bull) <= 1 and len(guess_cow) <= 1:
         print(f'{len(guess_bull)} bull ,{len(guess_cow)} cow')
     elif len(guess_bull) >= 2 and len(guess_cow) >= 2:
